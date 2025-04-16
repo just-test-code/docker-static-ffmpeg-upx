@@ -7,11 +7,16 @@ name: docker_publish
 on:
   # Trigger the workflow on tags push that match the pattern v*, for example v1.0.0
   push:
-    tags:
-      - "*"
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      tag:
+        description: "指定镜像标签（留空则使用时间戳）"
+        required: false
+        type: string
+    
 
 # Sets the permissions granted to the GITHUB_TOKEN for the actions in this job.
 permissions:
@@ -42,4 +47,4 @@ jobs:
           # DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
           # QUAY_USERNAME: ${{ secrets.QUAY_USERNAME }}
           # QUAY_TOKEN: ${{ secrets.QUAY_TOKEN }}
-          tag: ${{ github.ref_name }}
+          tag: ${{ github.event.inputs.tag }}
