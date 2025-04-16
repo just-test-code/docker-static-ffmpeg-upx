@@ -26,11 +26,11 @@ runs:
     #       ${{ inputs.tag }}
     #       latest
 
-    # - name: Set up QEMU
-    #   uses: docker/setup-qemu-action@v3
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
 
-    # - name: Set up Docker Buildx
-    #   uses: docker/setup-buildx-action@v3
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
 
     # # Create a Access Token and save it as as Actions secret
     # # https://hub.docker.com/settings/security
